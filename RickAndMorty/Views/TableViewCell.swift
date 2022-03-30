@@ -8,11 +8,7 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    
-    
-    // MARK: IBOutlets
 
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var characterImageView: UIImageView! {
         didSet {
             characterImageView.contentMode = .scaleAspectFit
@@ -21,8 +17,9 @@ class TableViewCell: UITableViewCell {
             characterImageView.backgroundColor = .white
         }
     }
+    @IBOutlet weak var nameLabel: UILabel!
+  
     
-    // MARK: - Public methods
     func configure(with character: Character?) {
         nameLabel.text = character?.name
         DispatchQueue.global().async {

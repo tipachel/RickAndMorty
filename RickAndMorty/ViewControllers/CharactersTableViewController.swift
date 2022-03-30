@@ -40,6 +40,13 @@ class CharactersTableViewController: UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let character = rickAndMorty?.results[indexPath.row]
+        let detailVC = segue.destination as! DetailsViewController
+        detailVC.character = character
+    }
+    
 
     @IBAction func updateData(_ sender: UIBarButtonItem) {
         sender.tag == 1
