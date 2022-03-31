@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
-    @IBOutlet weak var characterImageView: UIImageView! {
+    @IBOutlet weak var characterImageView: CharacterImageView! {
         didSet {
             characterImageView.contentMode = .scaleAspectFit
             characterImageView.clipsToBounds = true
@@ -22,14 +22,7 @@ class TableViewCell: UITableViewCell {
     
     func configure(with character: Character?) {
         nameLabel.text = character?.name
-        DispatchQueue.global().async {
-            guard let stringUrl = character?.image else { return }
-            guard let imageUrl = URL(string: stringUrl) else { return }
-            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
-            DispatchQueue.main.async {
-                self.characterImageView.image = UIImage(data: imageData)
-            }
-        }
+        characterImageView.fetchImage(from: character?.image ?? "")
     }
 }
 
