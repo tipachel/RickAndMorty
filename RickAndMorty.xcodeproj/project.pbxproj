@@ -71,7 +71,7 @@
 				595CF2D227F32F8E00B80102 /* ViewControllers */,
 				595CF2D627F331DA00B80102 /* Storyboards */,
 				595CF2DC27F3AE2900B80102 /* Views */,
-				595CF2E127F5FB2300B80102 /* SupportedFiles */,
+				595CF2E127F5FB2300B80102 /* App */,
 				595CF2C327F1299D00B80102 /* Assets.xcassets */,
 				595CF2C827F1299D00B80102 /* Info.plist */,
 			);
@@ -121,13 +121,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		595CF2E127F5FB2300B80102 /* SupportedFiles */ = {
+		595CF2E127F5FB2300B80102 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				595CF2BA27F1299800B80102 /* AppDelegate.swift */,
 				595CF2BC27F1299800B80102 /* SceneDelegate.swift */,
 			);
-			path = SupportedFiles;
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
