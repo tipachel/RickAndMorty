@@ -10,8 +10,8 @@ import UIKit
 class CharactersTableViewController: UITableViewController {
     
     private var rickAndMorty: RickAndMorty?
-     private var characters: [Character] = []
-
+    private var characters: [Character] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +22,8 @@ class CharactersTableViewController: UITableViewController {
         setupNavigationBar()
         fetchData(from: Link.rickAndMortyApi.rawValue)
         
-        
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         rickAndMorty?.results.count ?? 0
     }
@@ -33,10 +32,9 @@ class CharactersTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableViewCell
         
-        
         let character = rickAndMorty?.results[indexPath.row]
         cell.configure(with: character)
-    
+        
         return cell
     }
     
@@ -47,31 +45,27 @@ class CharactersTableViewController: UITableViewController {
         detailVC.character = character
     }
     
-
     @IBAction func updateData(_ sender: UIBarButtonItem) {
         sender.tag == 1
-            ? fetchData(from: rickAndMorty?.info.next)
-            : fetchData(from: rickAndMorty?.info.prev)
+        ? fetchData(from: rickAndMorty?.info.next)
+        : fetchData(from: rickAndMorty?.info.prev)
     }
-    
     
     private func setupNavigationBar() {
         
         title = "Rick & Morty"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        // Navigation bar appearance
         if #available(iOS 13.0, *) {
             let navBarAppearance = UINavigationBarAppearance()
             navBarAppearance.configureWithOpaqueBackground()
             navBarAppearance.backgroundColor = .black
             navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-
+            
             navigationController?.navigationBar.standardAppearance = navBarAppearance
             navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         }
-        
     }
     
     private func fetchData(from url: String?) {
@@ -80,5 +74,4 @@ class CharactersTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
 }

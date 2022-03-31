@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    
     @IBOutlet var characterImageView: CharacterImageView! {
         didSet {
             characterImageView.layer.cornerRadius = characterImageView.frame.width / 2
@@ -17,9 +17,6 @@ class DetailsViewController: UIViewController {
     @IBOutlet var descriptionLabel: UILabel!
     
     var character: Character!
-    
-    private var spinnerView = UIActivityIndicatorView()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

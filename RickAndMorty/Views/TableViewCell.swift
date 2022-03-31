@@ -8,7 +8,7 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var characterImageView: CharacterImageView! {
         didSet {
             characterImageView.contentMode = .scaleAspectFit
@@ -18,7 +18,6 @@ class TableViewCell: UITableViewCell {
         }
     }
     @IBOutlet weak var nameLabel: UILabel!
-  
     
     func configure(with character: Character?) {
         nameLabel.text = character?.name

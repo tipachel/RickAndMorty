@@ -28,6 +28,7 @@ class CharacterImageView: UIImageView {
             }
         }
     }
+    
     private func saveDataToCache(with data: Data , and response: URLResponse) {
         guard let url = response.url else { return }
         let request = URLRequest(url: url)
